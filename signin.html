@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stackly | Create Account</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="signup-box">
+
+  <h1>Create Account</h1>
+
+  <form id="signupForm">
+
+    <input type="text" id="fullName" placeholder="Full Name" required>
+
+    <select id="roleSelect" required>
+      <option value="">Select Role</option>
+      <option value="user">Client</option>
+      <option value="admin">Attorney</option>
+    </select>
+
+    <input type="email" id="email" placeholder="Email Address" autocomplete="username" required>
+    
+    <div class="password-field">
+      <input type="password" id="password" placeholder="Password" autocomplete="new-password" required>
+      <i class="ri-eye-off-line toggle-password" id="togglePassword"></i>
+    </div>
+
+    <div class="password-field">
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" autocomplete="new-password" required>
+      <i class="ri-eye-off-line toggle-password" id="toggleConfirmPassword"></i>
+    </div>
+
+    <div id="signupMessage" class="message-container"></div>
+
+    <div class="terms">
+      <input type="checkbox" required>
+      <label>I agree to Terms &amp; Privacy Policy</label>
+    </div>
+
+    <button type="submit">Create Account</button>
+
+    <div class="social-login">
+      <p>Or sign up with</p>
+      <div class="social-icons">
+        <a href="404.html" class="social-icon"><i class="ri-google-fill"></i></a>
+        <a href="404.html" class="social-icon"><i class="ri-facebook-fill"></i></a>
+      </div>
+    </div>
+
+    <p class="login-link">
+      Already have an account?
+      <a href="index.html">Login</a>
+    </p>
+
+  </form>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly Admin – Firm Overview</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="admindashboard.css">
+</head>
+
+<body>
+    <button id="menu-toggle" class="menu-toggle"><i class="ri-menu-line"></i></button>
+    <div class="sidebar" id="sidebar">
+        <button id="close-sidebar-admin" class="close-sidebar"><i class="ri-close-line"></i></button>
+        <div class="logo">
+            <img src="assets/stackly-logo.webp" alt="Stackly Logo" class="sidebar-logo">
+        </div>
+        <ul>
+            <li id="admin-tab-dashboard" class="active">DASHBOARD</li>
+            <li id="admin-tab-orders">CASES</li>
+            <li id="admin-tab-menu">SERVICES</li>
+            <li id="admin-tab-guests">CLIENTS</li>
+            <li id="admin-tab-reservations">APPOINTMENTS</li>
+            <li id="logout-btn-admin" class="logout-item"><i class="ri-logout-box-r-line"></i> LOGOUT</li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="404.html"><button class="btn-return">FIRM PORTAL</button></a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="mobile-navbar">
+            <div class="nav-left">
+                <button id="mobile-menu-toggle-admin" class="mobile-menu-toggle"><i class="ri-menu-line"></i></button>
+                <img src="assets/stackly-logo.webp" alt="Stackly" class="mobile-logo">
+            </div>
+            <div class="nav-right">
+                <div class="mobile-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+        </div>
+        <header>
+            <div class="welcome-section">
+                <p class="welcome-back">ATTORNEY PORTAL</p>
+                <h2 id="welcomeName">Hey, Counselor <span class="wave">👋</span></h2>
+                <p class="welcome-subtitle">Here's your firm overview for today.</p>
+            </div>
+            <div class="user-info">
+                <div class="user-details">
+                    <span class="user-name" id="profileEmail">admin@stackly.com</span>
+                    <span class="user-role">ATTORNEY</span>
+                </div>
+                <div class="user-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+        </header>
+
+        <div id="admin-dashboard-section" class="tab-content active">
+            <div class="overview-header">
+                <div class="title-section">
+                    <h2>Firm Overview</h2>
+                    <p>Key metrics and active matters at a glance.</p>
+                </div>
+                <a href="404.html"><button class="btn-download">DOWNLOAD REPORT</button></a>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="kpi-card">
+                    <div class="card-header">
+                        <span class="icon">💰</span>
+                        <span class="trend up">+14%</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="label">Monthly Billings</p>
+                        <p class="value">$84,250.00</p>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="card-header">
+                        <span class="icon">⚖️</span>
+                        <span class="trend up">+5%</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="label">Active Cases</p>
+                        <p class="value">48</p>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="card-header">
+                        <span class="icon">👥</span>
+                        <span class="trend down">-2%</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="label">Total Clients</p>
+                        <p class="value">215</p>
+                    </div>
+                </div>
+                <div class="kpi-card highlight">
+                    <div class="card-header">
+                        <span class="icon">📅</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="label">Pending Appointments</p>
+                        <p class="value">12 Today</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-sections">
+                <div class="table-section">
+                    <div class="section-header">
+                        <h3>Recent Case Activity</h3>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>CASE ID</th>
+                                <th>CLIENT</th>
+                                <th>MATTER</th>
+                                <th>BILLED</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#LX-501</td>
+                                <td>Reyes & Partners LLC</td>
+                                <td>M&A Due Diligence</td>
+                                <td>$18,500.00</td>
+                                <td><span class="status preparing">IN PROGRESS</span></td>
+                            </tr>
+                            <tr>
+                                <td>#LX-500</td>
+                                <td>Sarah O'Brien</td>
+                                <td>Estate Planning</td>
+                                <td>$6,200.00</td>
+                                <td><span class="status served">CLOSED</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="analytics-section">
+                    <div class="section-header">
+                        <h3>Billing Analytics</h3>
+                    </div>
+                    <div class="chart-placeholder">
+                        <div class="chart-container">
+                            <div class="chart-line"></div>
+                        </div>
+                        <div class="chart-labels">
+                            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="admin-orders-section" class="tab-content">
+            <div class="overview-header">
+                <h2>Manage Active Cases</h2>
+            </div>
+            <div class="table-section full-width">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CASE ID</th>
+                            <th>CLIENT</th>
+                            <th>MATTER</th>
+                            <th>LAST UPDATE</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#LX-505</td>
+                            <td>Nolan Industries</td>
+                            <td>Commercial Lease Dispute</td>
+                            <td>Today 2:45 PM</td>
+                            <td><span class="status preparing">IN PROGRESS</span></td>
+                            <td><a href="404.html"><button class="btn-action">Update</button></a></td>
+                        </tr>
+                        <tr>
+                            <td>#LX-504</td>
+                            <td>Clara Mehta</td>
+                            <td>Immigration Petition</td>
+                            <td>Today 12:30 PM</td>
+                            <td><span class="status served">CLOSED</span></td>
+                            <td><a href="404.html"><button class="btn-action">Archive</button></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="admin-menu-section" class="tab-content">
+            <div class="overview-header">
+                <h2>Services Management</h2>
+                <a href="404.html"><button class="btn-download">+ ADD SERVICE</button></a>
+            </div>
+            <div class="table-section full-width">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>SERVICE NAME</th>
+                            <th>PRACTICE AREA</th>
+                            <th>BASE FEE</th>
+                            <th>CAPACITY</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Corporate Advisory</td>
+                            <td>Corporate Law</td>
+                            <td>$2,500</td>
+                            <td>Unlimited</td>
+                            <td><span class="status served">ACTIVE</span></td>
+                            <td><a href="404.html"><button class="btn-action">Edit</button></a></td>
+                        </tr>
+                        <tr>
+                            <td>Patent Filing</td>
+                            <td>Intellectual Property</td>
+                            <td>$3,200</td>
+                            <td>Limited</td>
+                            <td><span class="status preparing">WAITLIST</span></td>
+                            <td><a href="404.html"><button class="btn-action">Edit</button></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="admin-guests-section" class="tab-content">
+            <div class="overview-header">
+                <h2>Client Directory</h2>
+            </div>
+            <div class="table-section full-width">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CLIENT NAME</th>
+                            <th>EMAIL</th>
+                            <th>TOTAL CASES</th>
+                            <th>TOTAL BILLED</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Reyes & Partners LLC</td>
+                            <td>contact@reyespartners.com</td>
+                            <td>8</td>
+                            <td>$52,000.00</td>
+                            <td><span class="status served">RETAINER</span></td>
+                            <td><a href="404.html"><button class="btn-action">Profile</button></a></td>
+                        </tr>
+                        <tr>
+                            <td>Clara Mehta</td>
+                            <td>clara.mehta@email.com</td>
+                            <td>3</td>
+                            <td>$14,500.00</td>
+                            <td><span class="status served">ACTIVE</span></td>
+                            <td><a href="404.html"><button class="btn-action">Profile</button></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="admin-reservations-section" class="tab-content">
+            <div class="overview-header">
+                <h2>Appointment Management</h2>
+            </div>
+            <div class="table-section full-width">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CLIENT</th>
+                            <th>DATE</th>
+                            <th>TIME</th>
+                            <th>ATTORNEY</th>
+                            <th>TYPE</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nolan Industries</td>
+                            <td>Jun 6, 2024</td>
+                            <td>10:00 AM</td>
+                            <td>J. Williams, Esq.</td>
+                            <td>Video Call</td>
+                            <td><span class="status served">CONFIRMED</span></td>
+                        </tr>
+                        <tr>
+                            <td>Marcus T. Reid</td>
+                            <td>Jun 6, 2024</td>
+                            <td>2:30 PM</td>
+                            <td>M. Chen, Esq.</td>
+                            <td>In-Person</td>
+                            <td><span class="status preparing">PENDING</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

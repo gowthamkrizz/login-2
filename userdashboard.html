@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly - Client Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="userdashboard.css">
+</head>
+
+<body>
+    <button id="menu-toggle" class="menu-toggle"><i class="ri-menu-line"></i></button>
+    <div class="sidebar" id="sidebar">
+        <button id="close-sidebar" class="close-sidebar"><i class="ri-close-line"></i></button>
+        <div class="logo">
+            <img src="assets/stackly-logo.webp" alt="Stackly Logo" class="sidebar-logo">
+        </div>
+        <ul>
+            <li id="tab-dashboard" class="active">DASHBOARD</li>
+            <li id="tab-orders">MY CASES</li>
+            <li id="tab-menu">SERVICES</li>
+            <li id="tab-reservations">APPOINTMENTS</li>
+            <li id="tab-rewards">DOCUMENTS</li>
+            <li id="logout-btn-user" class="logout-item"><i class="ri-logout-box-r-line"></i> LOGOUT</li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="404.html"><button class="btn-return">CONSULT NOW</button></a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="mobile-navbar">
+            <div class="nav-left">
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle"><i class="ri-menu-line"></i></button>
+                <img src="assets/stackly-logo.webp" alt="Stackly" class="mobile-logo">
+            </div>
+            <div class="nav-right">
+                <div class="mobile-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+        </div>
+        <header>
+            <div class="welcome-section">
+                <p class="welcome-back">CLIENT PORTAL</p>
+                <h2 id="welcomeName">Hey, Client <span class="wave">👋</span></h2>
+                <p class="welcome-subtitle">Your legal matters are in trusted hands.</p>
+            </div>
+            <div class="user-info">
+                <div class="user-details">
+                    <span class="user-name" id="profileEmail">client@stackly.com</span>
+                    <span class="user-role">RETAINER CLIENT</span>
+                </div>
+                <div class="user-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+        </header>
+
+        <div id="dashboard-section" class="tab-content active">
+            <div class="overview-header">
+                <div class="title-section">
+                    <h2>Your Legal Hub</h2>
+                    <p>An overview of your active matters and upcoming appointments.</p>
+                </div>
+                <a href="404.html"><button class="btn-download">VIEW DOCUMENTS</button></a>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="kpi-card">
+                    <div class="card-header">
+                        <span class="icon">⚖️</span>
+                        <span class="trend up">Active</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="label">Open Cases</p>
+                        <p class="value">02</p>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="card-header">
+                        <span class="icon">📄</span>
+                        <span class="trend up">+3 new</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="label">Pending Documents</p>
+                        <p class="value">7 Files</p>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="card-header">
+                        <span class="icon">🕐</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="label">Billable Hours</p>
+                        <p class="value">12.5 hrs</p>
+                    </div>
+                </div>
+                <div class="kpi-card highlight">
+                    <div class="card-header">
+                        <span class="icon">📅</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="label">Next Appointment</p>
+                        <p class="value">Tomorrow 10:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-sections">
+                <div class="table-section">
+                    <div class="section-header">
+                        <h3>Recent Cases</h3>
+                        <a href="404.html" class="view-all">CASE HISTORY</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>CASE #</th>
+                                <th>ATTORNEY</th>
+                                <th>MATTER</th>
+                                <th>BILLED</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#LX-902</td>
+                                <td>J. Williams, Esq.</td>
+                                <td>Contract Dispute</td>
+                                <td>$4,500.00</td>
+                                <td><span class="status preparing">IN PROGRESS</span></td>
+                            </tr>
+                            <tr>
+                                <td>#LX-885</td>
+                                <td>M. Chen, Esq.</td>
+                                <td>IP Registration</td>
+                                <td>$2,200.00</td>
+                                <td><span class="status served">RESOLVED</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="analytics-section">
+                    <div class="section-header">
+                        <h3>Billing Activity</h3>
+                    </div>
+                    <div class="chart-placeholder">
+                        <div class="chart-container">
+                            <div class="chart-line"></div>
+                        </div>
+                        <div class="chart-labels">
+                            <span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="my-orders-section" class="tab-content">
+            <div class="overview-header">
+                <h2>My Case History</h2>
+            </div>
+            <div class="table-section full-width">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CASE ID</th>
+                            <th>DATE OPENED</th>
+                            <th>MATTER</th>
+                            <th>BILLED</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#LX-7721</td>
+                            <td>May 12, 2024</td>
+                            <td>Employment Termination Review</td>
+                            <td>$3,800.00</td>
+                            <td><span class="status served">RESOLVED</span></td>
+                            <td><a href="404.html"><button class="btn-action">View</button></a></td>
+                        </tr>
+                        <tr>
+                            <td>#LX-7650</td>
+                            <td>May 10, 2024</td>
+                            <td>Real Estate Closing</td>
+                            <td>$5,200.00</td>
+                            <td><span class="status served">RESOLVED</span></td>
+                            <td><a href="404.html"><button class="btn-action">View</button></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="menu-section" class="tab-content">
+            <div class="overview-header">
+                <h2>Our Legal Services</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="service-icon"><i class="ri-building-2-line"></i></div>
+                    <h4>Corporate Law</h4>
+                    <p>From $2,500</p>
+                    <a href="404.html"><button class="btn-add">Enquire</button></a>
+                </div>
+                <div class="menu-item">
+                    <div class="service-icon"><i class="ri-home-2-line"></i></div>
+                    <h4>Real Estate</h4>
+                    <p>From $1,800</p>
+                    <a href="404.html"><button class="btn-add">Enquire</button></a>
+                </div>
+                <div class="menu-item">
+                    <div class="service-icon"><i class="ri-shield-check-line"></i></div>
+                    <h4>IP & Patents</h4>
+                    <p>From $3,200</p>
+                    <a href="404.html"><button class="btn-add">Enquire</button></a>
+                </div>
+                <div class="menu-item">
+                    <div class="service-icon"><i class="ri-team-line"></i></div>
+                    <h4>Employment Law</h4>
+                    <p>From $2,000</p>
+                    <a href="404.html"><button class="btn-add">Enquire</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="reservations-section" class="tab-content">
+            <div class="overview-header">
+                <h2>Schedule Consultation</h2>
+            </div>
+            <div class="reservation-container">
+                <form class="reservation-form">
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>Time</label>
+                        <input type="time">
+                    </div>
+                    <div class="form-group">
+                        <label>Meeting Type</label>
+                        <select>
+                            <option>In-Person</option>
+                            <option>Video Call</option>
+                            <option>Phone</option>
+                        </select>
+                    </div>
+                    <a href="404.html"><button type="submit" class="btn-submit">Confirm Appointment</button></a>
+                </form>
+                <div class="upcoming-reservations">
+                    <h3>Upcoming Appointments</h3>
+                    <div class="reservation-card">
+                        <p><strong>Tomorrow 10:00 AM</strong></p>
+                        <p>Video Call – Contract Review</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="rewards-section" class="tab-content">
+            <div class="overview-header">
+                <h2>Your Documents</h2>
+            </div>
+            <div class="rewards-container">
+                <div class="points-balance">
+                    <h3>Stored Documents</h3>
+                    <p class="pts">7 <span>FILES</span></p>
+                </div>
+                <div class="available-offers">
+                    <h3>Recent Uploads</h3>
+                    <div class="offer-card">
+                        <h4>NDA – TechCorp Inc.</h4>
+                        <p>Uploaded May 10, 2024 · PDF</p>
+                        <a href="404.html"><button class="btn-redeem">Download</button></a>
+                    </div>
+                    <div class="offer-card">
+                        <h4>Employment Contract</h4>
+                        <p>Uploaded Apr 28, 2024 · PDF</p>
+                        <a href="404.html"><button class="btn-redeem">Download</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
