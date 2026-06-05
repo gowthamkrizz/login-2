@@ -1,18 +1,101 @@
 
 const signupForm = document.getElementById("signupForm");
 if (signupForm) {
+  // Restrict name field to alphanumeric + spaces only (block special characters)
+  const fullNameInput = document.getElementById("fullName");
+  if (fullNameInput) {
+    fullNameInput.addEventListener("keypress", function (e) {
+      const char = String.fromCharCode(e.which);
+      // Block numbers if field is empty (must start with a letter)
+      if (this.value.length === 0 && /^[0-9]$/.test(char)) {
+        e.preventDefault();
+        return;
+      }
+      if (!/^[a-zA-Z0-9\s]$/.test(char)) {
+        e.preventDefault();
+      }
+    });
+    // Block paste of special characters and leading numbers
+    fullNameInput.addEventListener("input", function () {
+      this.value = this.value.replace(/^[0-9\s]+/, "").replace(/[^a-zA-Z0-9\s]/g, "");
+    });
+  }
+
+
+  // Restrict signup email: must start with a letter, numbers allowed after
+  const signupEmailInput = document.getElementById("email");
+  if (signupEmailInput) {
+    signupEmailInput.addEventListener("keypress", function (e) {
+      const char = String.fromCharCode(e.which);
+      if (this.value.length === 0 && /^[0-9]$/.test(char)) {
+        e.preventDefault();
+        return;
+      }
+    });
+    signupEmailInput.addEventListener("input", function () {
+      if (/^[0-9]/.test(this.value)) {
+        this.value = this.value.replace(/^[0-9]+/, "");
+      }
+    });
+  }
+
   signupForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const fullName = document.getElementById("fullName").value;
+    const fullName = document.getElementById("fullName").value.trim();
     const role = document.getElementById("roleSelect").value;
-    const email = document.getElementById("email").value;
+    const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
 
     const messageBox = document.getElementById("signupMessage");
     if (messageBox) messageBox.innerText = "";
 
+    // Name: must not be empty and only alphabetic + spaces
+    if (!fullName) {
+      if (messageBox) {
+        messageBox.innerText = "Full name is required.";
+        messageBox.className = "message-container error";
+      }
+      return;
+    }
+    if (!/^[a-zA-Z0-9\s]+$/.test(fullName)) {
+      if (messageBox) {
+        messageBox.innerText = "Name must not contain special characters.";
+        messageBox.className = "message-container error";
+      }
+      return;
+    }
+
+    // Role required
+    if (!role) {
+      if (messageBox) {
+        messageBox.innerText = "Please select a role.";
+        messageBox.className = "message-container error";
+      }
+      return;
+    }
+
+    // Valid email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      if (messageBox) {
+        messageBox.innerText = "Please enter a valid email address.";
+        messageBox.className = "message-container error";
+      }
+      return;
+    }
+
+    // Password length
+    if (password.length < 6) {
+      if (messageBox) {
+        messageBox.innerText = "Password must be at least 6 characters.";
+        messageBox.className = "message-container error";
+      }
+      return;
+    }
+
+    // Passwords match
     if (password !== confirmPassword) {
       if (messageBox) {
         messageBox.innerText = "Passwords do not match!";
@@ -22,7 +105,6 @@ if (signupForm) {
     }
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    
 
     if (users.find(u => u.email === email)) {
       if (messageBox) {
@@ -41,34 +123,73 @@ if (signupForm) {
 
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
+
+  // Restrict login email: must start with a letter, numbers allowed after
+  const loginEmailInput = document.getElementById("loginEmail");
+  if (loginEmailInput) {
+    loginEmailInput.addEventListener("keypress", function (e) {
+      const char = String.fromCharCode(e.which);
+      if (this.value.length === 0 && /^[0-9]$/.test(char)) {
+        e.preventDefault();
+        return;
+      }
+    });
+    loginEmailInput.addEventListener("input", function () {
+      if (/^[0-9]/.test(this.value)) {
+        this.value = this.value.replace(/^[0-9]+/, "");
+      }
+    });
+  }
+
   loginForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const role = document.getElementById("role").value;
-    const email = document.getElementById("loginEmail").value;
+    const email = document.getElementById("loginEmail").value.trim();
     const password = document.getElementById("loginPassword").value;
 
+    // Find or create a login message box
+    let messageBox = document.getElementById("loginMessage");
+    if (!messageBox) {
+      messageBox = document.createElement("p");
+      messageBox.id = "loginMessage";
+      messageBox.style.cssText = "margin-top:10px; text-align:center; font-size:13px;";
+      loginForm.querySelector("button[type='submit']").insertAdjacentElement("afterend", messageBox);
+    }
+    messageBox.innerText = "";
+
     if (!role) {
+      messageBox.innerText = "Please select your role.";
+      messageBox.style.color = "#cc4444";
+      return;
+    }
+
+    // Valid email format check
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      messageBox.innerText = "Please enter a valid email address.";
+      messageBox.style.color = "#cc4444";
       return;
     }
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    
-    let user = users.find(u => u.email === email && u.password === password && u.role === role);
 
+    // Only allow registered emails — no guest fallback
+    const registeredUser = users.find(u => u.email === email && u.role === role);
 
-    if (!user) {
-      const existingUser = users.find(u => u.email === email && u.role === role);
-      if (existingUser) {
-        user = existingUser; 
-      } else {
-
-        const guestName = email.split('@')[0];
-        user = { fullName: guestName, email: email, role: role };
-      }
+    if (!registeredUser) {
+      messageBox.innerText = "This email is not registered. Please sign up first.";
+      messageBox.style.color = "#cc4444";
+      return;
     }
 
-    sessionStorage.setItem("loggedInUser", JSON.stringify(user));
+    if (registeredUser.password !== password) {
+      messageBox.innerText = "Incorrect password. Please try again.";
+      messageBox.style.color = "#cc4444";
+      return;
+    }
+
+    sessionStorage.setItem("loggedInUser", JSON.stringify(registeredUser));
 
     if (role === "user") {
       window.location.href = "userdashboard.html";
